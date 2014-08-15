@@ -22,9 +22,9 @@ class RouteArray
 {
     private $routes;
 
-    public function __construct ( $configPath )
+    public function __construct ( $routePath )
     {
-        $this->routes = require $configPath;
+        $this->routes = require $routePath;
     }
 
     /**
