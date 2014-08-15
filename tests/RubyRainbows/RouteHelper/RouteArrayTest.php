@@ -13,7 +13,7 @@ class RouteArrayTest extends TestCase
         $this->routeArray = new RouteArray( $this->fixturesPath . '/routes.php' );
     }
 
-    public function test ()
+    public function testGetRoutes ()
     {
         $expected = [
             'foo' => '/foo'
@@ -22,10 +22,11 @@ class RouteArrayTest extends TestCase
         $this->assertEquals( $expected, $this->routeArray->getRoutes() );
     }
 
+    /**
+     *  @expectedException RubyRainbows\RouteHelper\RouteNotFoundException
+     */
     public function testMissingGetRoute ()
     {
-        $this->setExpectedException( 'RubyRainbows\RouteHelper\RouteNotFoundException' );
-
         $this->routeArray->getRoute( 'foo-missing' );
     }
 
