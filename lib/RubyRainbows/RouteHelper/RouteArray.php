@@ -10,6 +10,8 @@
 
 namespace RubyRainbows\RouteHelper;
 
+use RubyRainbows\RouteHelper\Exceptions\RouteNotFoundException as NotFound;
+
 /**
  * Class RouteArray
  *
@@ -49,6 +51,6 @@ class RouteArray
         if ( array_key_exists( $name, $this->routes) )
             return $this->routes[$name];
 
-        throw new RouteNotFoundException();
+        throw new NotFound();
     }
 }

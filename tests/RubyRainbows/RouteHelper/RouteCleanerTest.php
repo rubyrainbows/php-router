@@ -21,7 +21,7 @@ class RouteCleanerTest extends TestCase
     }
 
     /**
-     *  @expectedException RubyRainbows\RouteHelper\RouteMissingParameterException
+     *  @expectedException RubyRainbows\RouteHelper\Exceptions\RouteMissingParameterException
      *  @expectedExceptionMessage Route is missing a required parameter: bar.
      */
     public function testMakeRouteWithOneMissingRequiredParameter ()

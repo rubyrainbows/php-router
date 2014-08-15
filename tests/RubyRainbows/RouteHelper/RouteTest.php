@@ -8,6 +8,7 @@ class RouteTest extends TestCase
     private $routePath;
     private $rotueArray;
     private $routeCleaner;
+    private $routeJoiner;
 
     public function setUp ()
     {
@@ -15,8 +16,9 @@ class RouteTest extends TestCase
 
         $this->routeArray   = $this->mock( 'RubyRainbows\RouteHelper\RouteArray' );
         $this->routeCleaner = $this->mock( 'RubyRainbows\RouteHelper\RouteCleaner' );
+        $this->routeJoiner  = $this->mock( 'RubyRainbows\RouteHelper\RouteJoiner' );
 
-        $this->route = new Route( $this->fixturesPath . '/routes.php', $this->routeArray, $this->routeCleaner );
+        $this->route = new Route( $this->fixturesPath . '/routes.php', $this->routeArray, $this->routeCleaner, $this->routeJoiner );
     }
 
     public function testGetRoute ()
@@ -28,5 +30,14 @@ class RouteTest extends TestCase
         $this->routeCleaner->shouldReceive('makeRoute')->once()->with('/foo/bar', $params)->andReturn('/foo/bar');
         
         $this->route->route( $name, $params );
+    }
+
+    public function testJoin ()
+    {
+        $routes = ['/foo', '/bar'];
+
+        $this->routeJoiner->shouldReceive('join')->once()->with($routes)->andReturn('/foo/bar');
+
+        $this->route->join( $routes );
     }
 }

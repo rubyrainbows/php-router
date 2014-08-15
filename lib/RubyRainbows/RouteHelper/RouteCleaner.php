@@ -10,6 +10,8 @@
 
 namespace RubyRainbows\RouteHelper;
 
+use RubyRainbows\RouteHelper\Exceptions\RouteMissingParameterException as ParamMissing;
+
 /**
  * Class RouteCleaner
  *
@@ -38,7 +40,7 @@ class RouteCleaner
         if ( strpos( $dirtyRoute, ":" ) !== false )
         {
             preg_match('/:[a-zA-Z0-9]*/', $dirtyRoute, $param );
-            throw new RouteMissingParameterException( ltrim($param[0], ':') );
+            throw new ParamMissing( ltrim($param[0], ':') );
         }
 
         return $dirtyRoute . '?' . http_build_query( $additional );

@@ -23,7 +23,7 @@ class RouteArrayTest extends TestCase
     }
 
     /**
-     *  @expectedException RubyRainbows\RouteHelper\RouteNotFoundException
+     *  @expectedException RubyRainbows\RouteHelper\Exceptions\RouteNotFoundException
      */
     public function testMissingGetRoute ()
     {

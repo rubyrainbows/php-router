@@ -8,14 +8,14 @@
  * @version   1.0.0
  */
 
-namespace RubyRainbows\RouteHelper;
+namespace RubyRainbows\RouteHelper\Exceptions;
 
 /**
  * Class RouteNotFoundException
  *
  * An exception for route issues
  *
- * @package RubyRainbows\RouteHelper
+ * @package RubyRainbows\RouteHelper\Exceptions
  */
 class RouteNotFoundException extends \Exception
 {

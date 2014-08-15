@@ -8,14 +8,14 @@
  * @version   1.0.0
  */
 
-namespace RubyRainbows\RouteHelper;
+namespace RubyRainbows\RouteHelper\Exceptions;
 
 /**
  * Class RouteMissingParameterException
  *
  * An exception for route issues
  *
- * @package RubyRainbows\RouteHelper
+ * @package RubyRainbows\RouteHelper\Exceptions
  */
 class RouteMissingParameterException extends \Exception
 {
