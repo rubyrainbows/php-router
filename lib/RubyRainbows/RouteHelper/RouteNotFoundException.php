@@ -1,0 +1,26 @@
+<?php
+
+/**
+ * RouteNotFoundException.php
+ *
+ * @author    Thomas Muntaner thomas.muntaner@gmail.com
+ * @copyright 2014 Thomas Muntaner
+ * @version   1.0.0
+ */
+
+namespace RubyRainbows\RouteHelper;
+
+/**
+ * Class RouteNotFoundException
+ *
+ * An exception for route issues
+ *
+ * @package RubyRainbows\RouteHelper
+ */
+class RouteNotFoundException extends \Exception
+{
+    public function __construct( $code = 0, Exception $previous = null )
+    {
+        parent::__construct( 'Route Not Found', $code, $previous );
+    }
+}
