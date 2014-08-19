@@ -40,6 +40,6 @@ class Route
 
     public function join ( $routes )
     {
-        $this->routeJoiner->join ( $routes );
+        return $this->routeJoiner->join ( $routes );
     }
 }
