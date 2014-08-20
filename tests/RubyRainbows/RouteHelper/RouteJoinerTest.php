@@ -36,7 +36,9 @@ class RouteJoinerTest extends TestCase
         return [
             ['/foo/bar', ['/foo', '/bar']],
             ['/foo/bar', ['/foo/', '/bar']],
-            ['/foo/bar', ['/foo/', 'bar']]
+            ['/foo/bar', ['/foo/', 'bar']],
+            ['/foo/bar', ['/foo', 'bar']],
+            ['/foob/bar', ['/foob', 'bar']],
         ];
     }
 

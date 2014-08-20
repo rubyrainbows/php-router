@@ -39,8 +39,11 @@ class RouteJoiner
         if ( !$this->isValidJoin( $routeString, $route) )
             throw new InvalidJoin( $routeString, $route );
 
-        if ( substr( $routeString, -1) == substr( $route, 0,1 ) ) // check /+/
+        if ( ( substr( $routeString, -1) == substr( $route, 0,1 ) ) && substr( $route, 0,1 ) == '/' ) // check /+/
             return $routeString . substr( $route, 1 );
+
+        if ( (substr( $routeString, -1) != '/') && substr( $route, 0,1 ) != '/' ) // check if no / between the two routes
+            return $routeString . '/' . $route;
 
         return $routeString . $route;
     }
