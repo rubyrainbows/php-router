@@ -1,6 +1,6 @@
 <?php
 
-use RubyRainbows\RouteHelper\RouteCleaner as RouteCleaner;
+use RubyRainbows\RouteHelper\RouteTemplateCleaner;
 
 class RouteCleanerTest extends TestCase
 {
@@ -10,7 +10,7 @@ class RouteCleanerTest extends TestCase
     {
         parent::setUp();
 
-        $this->routeCleaner = new RouteCleaner();
+        $this->routeCleaner = new RouteTemplateCleaner();
     }
 
     public function testMakeRoute ()

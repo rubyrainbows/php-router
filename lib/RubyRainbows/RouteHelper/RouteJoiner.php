@@ -24,6 +24,15 @@ class RouteJoiner
     private $invalidJoin1 = ['?', '&', '='];
     private $invalidJoin2 = ['http', 'https'];
 
+    /**
+     * Joins multiple route parts together
+     *
+     * @param $routes
+     *
+     * @return string
+     *
+     * @throws InvalidJoin
+     */
     public function join ( $routes )
     {
         $routeString = '';
@@ -34,23 +43,44 @@ class RouteJoiner
         return $routeString;
     }
 
-    private function appendRoute ( $routeString, $route )
+    /**
+     * Appends two route strings together
+     *
+     * @param $base
+     * @param $appended
+     *
+     * @return string
+     *
+     * @throws InvalidJoin
+     */
+    private function appendRoute ( $base, $appended )
     {
-        if ( !$this->isValidJoin( $routeString, $route) )
-            throw new InvalidJoin( $routeString, $route );
+        if ( $base == '' )
+            return $appended;
 
-        if ( ( substr( $routeString, -1) == substr( $route, 0,1 ) ) && substr( $route, 0,1 ) == '/' ) // check /+/
-            return $routeString . substr( $route, 1 );
+        if ( !$this->isValidJoin( $base, $appended) )
+            throw new InvalidJoin( $base, $appended );
 
-        if ( (substr( $routeString, -1) != '/') && substr( $route, 0,1 ) != '/' ) // check if no / between the two routes
-            return $routeString . '/' . $route;
+        if ( ( substr( $base, -1) == substr( $appended, 0,1 ) ) && substr( $appended, 0,1 ) == '/' ) // check /+/
+            return $base . substr( $appended, 1 );
 
-        return $routeString . $route;
+        if ( (substr( $base, -1) != '/') && substr( $appended, 0,1 ) != '/' ) // check if no / between the two routes
+            return $base . '/' . $appended;
+
+        return $base . $appended;
     }
 
+    /**
+     * Checks if the two routes being joined is a valid route
+     * join
+     *
+     * @param $route1
+     * @param $route2
+     *
+     * @return bool
+     */
     private function isValidJoin ( $route1, $route2 )
     {
-        // check first route
         foreach ( $this->invalidJoin1 as $invalid )
         {
             if ( strpos( $route1, $invalid ) !== false )

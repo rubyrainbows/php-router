@@ -39,6 +39,10 @@ class RouteJoinerTest extends TestCase
             ['/foo/bar', ['/foo/', 'bar']],
             ['/foo/bar', ['/foo', 'bar']],
             ['/foob/bar', ['/foob', 'bar']],
+            ['http://www.example.com/foo', ['http://www.example.com', 'foo']],
+            ['http://www.example.com/foo', ['http://www.example.com', '/foo']],
+            ['http://www.example.com/foo', ['http://www.example.com/', 'foo']],
+            ['http://www.example.com/foo', ['http://www.example.com/', '/foo']],
         ];
     }
 

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * RouteCleaner.php
+ * RouteTemplateCleaner.php
  *
  * @author    Thomas Muntaner thomas.muntaner@gmail.com
  * @copyright 2014 Thomas Muntaner
@@ -13,14 +13,21 @@ namespace RubyRainbows\RouteHelper;
 use RubyRainbows\RouteHelper\Exceptions\RouteMissingParameterException as ParamMissing;
 
 /**
- * Class RouteCleaner
+ * Class RouteTemplateCleaner
  *
- * Cleans the routes and returns 
+ * Cleans a template route from the route array and returns a proper route
  *
  * @package RubyRainbows\RouteHelper
  */
-class RouteCleaner
+class RouteTemplateCleaner
 {
+    /**
+     * C
+     * @param $dirtyRoute
+     * @param $params
+     * @return string
+     * @throws ParamMissing
+     */
     public function makeRoute ( $dirtyRoute, $params )
     {
         $additional = [];

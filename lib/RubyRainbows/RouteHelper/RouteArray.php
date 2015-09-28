@@ -41,10 +41,12 @@ class RouteArray
 
     /**
      * Returns a route by its name
-     * 
+     *
      * @param  string $name The name of the route
-     * 
+     *
      * @return string The Route
+     *
+     * @throws NotFound
      */
     public function getRoute ( $name )
     {
