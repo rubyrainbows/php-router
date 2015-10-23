@@ -43,7 +43,7 @@ class Router
     /**
      * @param array $routes An array of routes
      */
-    public function __construct ( $routes )
+    public function __construct ( $routes = [] )
     {
         $this->routeArray = new RouteArray($routes);
         $this->routeCleaner = new RouteCleaner();
