@@ -1,6 +1,6 @@
-[![Latest Stable Version](https://poser.pugx.org/rubyrainbows/route-helper/version.svg)](https://packagist.org/packages/rubyrainbows/route-helper)
-[![Total Downloads](https://poser.pugx.org/rubyrainbows/route-helper/downloads.svg)](https://packagist.org/packages/rubyrainbows/route-helper)
-[![Build Status](https://travis-ci.org/rubyrainbows/php-route-helper.svg?branch=master)](https://travis-ci.org/rubyrainbows/php-route-helper)
+[![Latest Stable Version](https://poser.pugx.org/rubyrainbows/router/version.svg)](https://packagist.org/packages/rubyrainbows/router)
+[![Total Downloads](https://poser.pugx.org/rubyrainbows/router/downloads.svg)](https://packagist.org/packages/rubyrainbows/router)
+[![Build Status](https://travis-ci.org/rubyrainbows/php-router.svg?branch=master)](https://travis-ci.org/rubyrainbows/php-router)
 
 # PHP Router
 
