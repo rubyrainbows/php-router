@@ -1,6 +1,7 @@
 <?php
 
-use RubyRainbows\RouteHelper\RouteJoiner as RouteJoiner;
+
+use RubyRainbows\Router\Core\RouteJoiner;
 
 class RouteJoinerTest extends TestCase
 {
@@ -18,17 +19,17 @@ class RouteJoinerTest extends TestCase
      */
     public function testJoin ( $expected, $routes )
     {
-        $this->assertEquals( $expected, $this->routeJoiner->join( $routes ) );
+        $this->assertEquals($expected, $this->routeJoiner->join($routes));
     }
 
     /**
      * @dataProvider invalidJoinProvider
-     * 
-     * @expectedException RubyRainbows\RouteHelper\Exceptions\InvalidRouteJoinException
+     *
+     * @expectedException RubyRainbows\Router\Core\Exceptions\RouterInvalidJoinException
      */
     public function testInvalidJoin ( $routes )
     {
-        $this->routeJoiner->join( $routes );
+        $this->routeJoiner->join($routes);
     }
 
     public function joinProvider ()

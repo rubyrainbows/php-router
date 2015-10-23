@@ -8,30 +8,36 @@
  * @version   1.0.0
  */
 
-namespace RubyRainbows\RouteHelper;
+namespace RubyRainbows\Router\Core;
 
-use RubyRainbows\RouteHelper\Exceptions\RouteNotFoundException as NotFound;
+use RubyRainbows\Router\Core\Exceptions\RouterNotFoundException;
 
 /**
  * Class RouteArray
  *
- * This class gets the routes from a route file and 
+ * This class gets the routes from a route file and
  * returns/finds them.
  *
- * @package RubyRainbows\RouteHelper
+ * @package RubyRainbows\Router\Core
  */
 class RouteArray
 {
+    /**
+     * @var array
+     */
     private $routes;
 
-    public function __construct ( $routePath )
+    /**
+     * @param array $routes An array of routes
+     */
+    public function __construct ( $routes )
     {
-        $this->routes = require $routePath;
+        $this->routes = $routes;
     }
 
     /**
      * Returns all the routes
-     * 
+     *
      * @return array The routes
      */
     public function getRoutes ()
@@ -45,14 +51,13 @@ class RouteArray
      * @param  string $name The name of the route
      *
      * @return string The Route
-     *
-     * @throws NotFound
+     * @throws RouterNotFoundException
      */
     public function getRoute ( $name )
     {
-        if ( array_key_exists( $name, $this->routes) )
+        if ( array_key_exists($name, $this->routes) )
             return $this->routes[$name];
 
-        throw new NotFound();
+        throw new RouterNotFoundException();
     }
 }

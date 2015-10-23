@@ -1,10 +1,10 @@
 {
-    "name": "rubyrainbows/route-helper",
+    "name": "rubyrainbows/router",
     "description": "A route helper library for PHP",
     "minimum-stability": "stable",
     "license": "MIT",
-    "homepage": "https://github.com/rubyrainbows/php-route-helper",
-    "version": "1.0.4",
+    "homepage": "https://github.com/rubyrainbows/php-router",
+    "version": "1.1.0",
     "authors": [
         {
             "name": "Thomas Muntaner",
@@ -19,7 +19,7 @@
     },
     "autoload": {
         "psr-4": {
-            "RubyRainbows\\": "lib/RubyRainbows/"
+            "RubyRainbows\\Router\\": "lib/RubyRainbows/Router/"
         }
     }
 }

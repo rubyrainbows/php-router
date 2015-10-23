@@ -1,16 +1,22 @@
 <?php
 
-use \Mockery as Mockery;
-
 require_once __DIR__ . '/../vendor/autoload.php';
 
 class TestCase extends \PHPUnit_Framework_TestCase
 {
+    /**
+     * @var string
+     */
     protected $fixturesPath;
+
+    /**
+     * @var array
+     */
+    protected $routes;
 
     public function setUp ()
     {
-        $this->fixturesPath = dirname( __FILE__ ) . '/fixtures';
+        $this->routes = require dirname(__FILE__) . '/fixtures/routes.php';
     }
 
     public function tearDown ()
@@ -20,6 +26,6 @@ class TestCase extends \PHPUnit_Framework_TestCase
 
     protected function mock ( $object )
     {
-        return Mockery::mock( $object );
+        return Mockery::mock($object);
     }
 }
