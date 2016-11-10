@@ -35,6 +35,7 @@ class RouteCleaner
     public function cleanRoute ( $dirtyRoute, $params )
     {
         $additional = [];
+        $missingParameters = $this->findMissingParameters($dirtyRoute);
 
         foreach ( $params as $key => $value )
         {
@@ -45,10 +46,20 @@ class RouteCleaner
             else
             {
                 $dirtyRoute = str_replace(":{$key}", $value, $dirtyRoute);
+
+                /**
+                 * We need to unset the params as they come in to prevent a param value with a : to give a false positive.
+                 */
+                foreach ( $missingParameters as $paramKey => $paramValue )
+                {
+                    if ( $paramValue == ":{$key}" )
+                    {
+                        unset($missingParameters[$paramKey]);
+                        break;
+                    }
+                }
             }
         }
-
-        $missingParameters = $this->findMissingParameters($dirtyRoute);
 
         if ( $missingParameters != [] )
         {
@@ -74,9 +85,14 @@ class RouteCleaner
 
         if ( strpos($route, ":") !== false )
         {
-            preg_match('/:[a-zA-Z0-9]*/', $route, $missingParameters);
+            preg_match_all('/:([a-zA-Z0-9]*)/', $route, $missingParameters);
         }
 
-        return $missingParameters;
+        if ( array_key_exists(0, $missingParameters) )
+        {
+            return $missingParameters[0];
+        }
+
+        return [];
     }
 }
